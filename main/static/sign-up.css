@@ -29,9 +29,7 @@ img {
   max-width: 100%; }
 
 a {
-  text-decoration: none;
-cursor: pointer;
-}
+  text-decoration: none; }
 
 a:hover {
   text-decoration: none; }
@@ -67,12 +65,10 @@ input:focus::-webkit-input-placeholder {
     width: 1200px;
     margin: 0 auto;
 }
-
 header{
   z-index: 10;
   position: fixed;
   overflow: hidden;
-    height:7vh;
     width: 100%;
     opacity: 0.9;
     background: #424242;
@@ -82,53 +78,109 @@ header{
 }
 
 
-.header_item{
 
-    margin-left: 10%;
-}
+.header_inner{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+    height:7vh;
+  }
 
-.header_item-logo{
+
+
+.item_logo{
   font-family: 'Roboto', sans-serif;
-  font-weight: 700;
+  font-weight: 300;
   color: #fff;
   font-size: 17px;
-  margin-left: 25px;
-  margin-top: 3px;
-  float: left;
 }
 
-.music_button{
-  border: none;
-  background: no-repeat;
-  color: ;
-
+.menu {
+  margin-left: 143px;
 }
-
-.header_item-button{
+.menu_list {
   display: flex;
-  justify-content: center;
-  margin-left: 70%;
-  margin-left: 70%;
-  margin-top: 7px;
-  cursor: pointer;
+  align-items: center;
+  margin: 300px;
+  margin: auto;
+}
+
+.menu_list_second{
+  display: flex;
+  align-items: center;
+  width: 250px;
+  margin-left: 60px;
+
 }
 
 
-.header_button-fist{
+.menu_list-link {
+  color: #fff;
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  margin-left: 50px;
+}
+.menu_list-link li a:first-child{
+  border-bottom: 4px solid #DBA901;
+
+}
+
+.menu_list-link:hover {
+  color: #fff;
+  transition: 0.3s;
+  padding: 2rem;
+  max-width: 14rem;
+  background-color: #DBA901;
+  border-radius: 4px;
+  max-width: 50rem;
+}
+
+
+
+
+.pricing_list-item{
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
-  width: 120px;
-  height: 30px;
+  padding: 5px 35px ;
   border-radius: 50px;
   border: none;
+  margin: auto;
   font-size: 16px;
   background: #DBA901;
+  text-align: center;
   color:#424242;
   border:none;
   cursor: pointer;
+  margin-left: 30px;
 }
 
-.header_button-second{
+.sing_in{
+  display: flex;
+  align-items: center;
+}
+
+#Sing_in{
+  margin-left: 20px;
+   cursor: pointer;
+   margin-top: 3px;
+  font-size: 22px;
+  text-align: center;
+  color: #D8D8D8;
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 500,
+  'GRAD' 0,
+  'opsz' 48;
+}
+#Sing_in:hover{
+  color: #DBA901;
+  transition: 0.3s;
+}
+
+
+.sing_up-link{
   width: 50px;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
@@ -137,29 +189,20 @@ header{
   border: none;
   font-size: 16px;
   margin-left: 5px;
-  margin-top: 5px;
+  margin-top: 10px;
   cursor: pointer;
+}
+.sing_up-link:hover{
+  color: #DBA901;
+  transition: 0.3s;
+
 }
 
-#Sing_in{
-  cursor: pointer;
-  margin-left: 30px;
-  padding-top: -4px;
-  margin-top: 5px;
-  width: 20px;
-  height: 20px;
-  font-size: 20px;
-  background: #000;
-  border-radius: 50px;
-  text-align: center;
-  background: #D8D8D8;
-  color: #424242;
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 500,
-  'GRAD' 0,
-  'opsz' 48;
-}
+
+
+
+
+
 
 .img_music_page{
   position: absolute;

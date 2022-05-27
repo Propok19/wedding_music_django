@@ -38,10 +38,17 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    #Allauth apps
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
 
     #Local
     'UserAuthentication.apps.UserauthenticationConfig',
-    'main.apps.MainConfig'
+    'main.apps.MainConfig',
+    'music_player.apps.MusicPlayerConfig'
 ]
 
 MIDDLEWARE = [
@@ -72,11 +79,6 @@ TEMPLATES = [
     },
 ]
 
-REST_FRAMEWORK = {
-        'DEFAULT_PERMISSION_CLASSES': [
-                'rest_framework.permissions.AllowAny',
-        ]
-}
 
 WSGI_APPLICATION = 'wed_mus.wsgi.application'
 
@@ -133,6 +135,17 @@ STATICFILES_FINDERS = [
 ]
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
+MEDIA_ROOT = 'D:\\Andrey\\Learning\\wed_django\\wed_mus\\music_player\\music'
+MEDIA_URL = '/media/'
+
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
+
+SITE_ID = 1
+
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
@@ -145,3 +158,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CSRF_COOKIE_DOMAIN = None
 CSRF_COOKIE_SECURE = False
+
+SOCIALACCOUNT_QUERY_EMAIL = True
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'offline',
+        }
+    }
+}

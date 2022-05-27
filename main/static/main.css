@@ -61,15 +61,15 @@ input::-webkit-input-placeholder {
 
 input:focus::-webkit-input-placeholder {
   color: #bebebe; }
-.container{
-    width: 1200px;
-    margin: 0 auto;
+
+body {
+    font-family: 'Roboto', sans-serif;
 }
+
 header{
   z-index: 10;
   position: fixed;
   overflow: hidden;
-    height:7vh;
     width: 100%;
     opacity: 0.9;
     background: #424242;
@@ -78,48 +78,113 @@ header{
     background-position: center center;
 }
 
-
-.header_item{
-
-    margin-left: 10%;
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+  padding: 0px 15px;
 }
 
-.header_item-logo{
+
+
+.header_inner{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+    height:7vh;
+  }
+
+
+
+.item_logo{
   font-family: 'Roboto', sans-serif;
-  font-weight: 700;
+  font-weight: 300;
   color: #fff;
   font-size: 17px;
-  margin-left: 25px;
-  margin-top: 3px;
-  float: left;
-
 }
 
-.header_item-button{
+.menu {
+  margin-left: 15%;
+}
+.menu_list {
   display: flex;
-  justify-content: center;
-  margin-left: 70%;
-  margin-left: 70%;
-  margin-top: 7px;
+  align-items: center;
+  margin: 300px;
+  margin: auto;
+}
+
+.menu_list_second{
+  display: flex;
+  align-items: center;
+  width: 250px;
+  margin-left: 10%;
+
+}
+
+.menu_list-link {
+  color: #fff;
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
   cursor: pointer;
+  margin-left: 50px;
+}
+.menu_list-link li a:first-child{
+  border-bottom: 4px solid #DBA901;
+
+}
+
+.menu_list-link:hover {
+  color: #fff;
+  transition: 0.3s;
+  padding: 2rem;
+  max-width: 14rem;
+  background-color: #DBA901;
+  border-radius: 4px;
+  max-width: 50rem;
 }
 
 
-.header_button-fist{
+.pricing_list-item{
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
-  width: 120px;
-  height: 30px;
+  padding: 5px 35px ;
   border-radius: 50px;
   border: none;
+  margin: auto;
   font-size: 16px;
   background: #DBA901;
+  text-align: center;
   color:#424242;
   border:none;
   cursor: pointer;
+  margin-left: 30px;
 }
 
-.header_button-second{
+.sing_in{
+  display: flex;
+  align-items: center;
+}
+
+#Sing_in{
+  margin-left: 20px;
+   cursor: pointer;
+   margin-top: 3px;
+  font-size: 22px;
+  text-align: center;
+  color: #D8D8D8;
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 500,
+  'GRAD' 0,
+  'opsz' 48;
+}
+#Sing_in:hover{
+  color: #DBA901;
+  transition: 0.3s;
+}
+
+
+.sing_up-link{
   width: 50px;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
@@ -128,49 +193,42 @@ header{
   border: none;
   font-size: 16px;
   margin-left: 5px;
-  margin-top: 5px;
+  margin-top: 10px;
   cursor: pointer;
 }
-
-#Sing_in{
-  cursor: pointer;
-  margin-left: 30px;
-  padding-top: -4px;
-  margin-top: 5px;
-  width: 20px;
-  height: 20px;
-  font-size: 20px;
-  background: #000;
-  border-radius: 50px;
-  text-align: center;
-  background: #D8D8D8;
-  color: #424242;
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 500,
-  'GRAD' 0,
-  'opsz' 48;
-}
-
-.img_music_page{
-  position: absolute;
-  height: 100vh;
-  width: 100%;
+.sing_up-link:hover{
+  color: #DBA901;
+  transition: 0.3s;
 
 }
 
 
 
+@media (max-width: 812px){
+  .menu {
+    margin-left: 5%;
+  }
+}
 
+@media (max-width: 768px){
+  .menu {
+    margin-left: 5%;
+  }
+  .menu_list {
+    display: none;
+  }
+  .menu_list_second{
+    display: none;
+  }
+}
 
 /*.............конец хедера .............*/
 
-.hopup{
-    display: none;
+.popup{
+  display: none;
 }
 
-
-.some{
+.background{
   position: absolute;
   z-index: 6;
   height: 100vh;
@@ -178,6 +236,7 @@ header{
   width: 100%;
   opacity: 0.9;
   height: 100vh;
+  cursor: pointer;
 
 }
 
@@ -186,9 +245,7 @@ header{
     padding: 0;
     box-sizing: border-box;
 }
-body {
-    font-family: 'Roboto', sans-serif;
-}
+
 input {
     height: 45px;
     width: 100%;
@@ -334,7 +391,7 @@ a.button {
     width: 100%;
     z-index: 0;
     overflow: hidden;
-    height: 100vh;
+    height: 100% ;
 
 }
 .shadow{
@@ -488,3 +545,14 @@ a.button {
   width: 70px;
 }
 
+@media (max-width: 1135px){
+  .info_item-title{
+    font-size: 70px;
+  }
+}
+@media (max-width: 1300px){
+  .item_img img{
+    height: 100%
+
+  }
+}
