@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Music</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header_item">
+            <div class="header_item-logo"> Logo </div>
+            <div class="header_item-button">
+                <a href="#"><button class="header_button-fist"> Pricing </button></a>
+                <a href="#"><span class="material-symbols-outlined " id="Sing_in">person </span></a>
+                <a href="#"><button class="header_button-second">Sing in</button></a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="hopup">
+            <div class="some"></div>
+            <div class="register-form-container">
+                <form method="POST" class="form-group">
+                    {% csrf_token %}
+                    <h1 class="form-title">
+                        Sign in
+                    </h1>
+                    <div class="form-fields">
+                        <div class="form-field">
+                            <input type="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-field">
+                            <input type="password" placeholder="Password" required minlength="8" maxlength="128">
+                        </div>
+                    </div>
+                    <div class="form-buttons">
+                        <button class="button">Sign in</button>
+
+                          <div class="divider">or</div>
+                        <a href="#" class="button button-google">Google</a>
+                    </div>
+                    <div class="sing_up">
+                        <p>Don’t have an account?</p>
+                        <a href="{% url 'register' %}">Sign up</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="item_img">
+            <div class="info_item">
+                <div class="info_item-title">Royalty free wedding music and audio tracks from $1
+                </div>
+                <div class="info_item-text">Start creating amazing videos with unlimited music </div>
+                <div class="info_buttons">
+                    <a href="#"><button class="first"> Go to music </button></a>
+                    <a href="#"><button class="second"> Pricing </button></a>
+                </div>
+            </div>
+            <div class="shadow"> </div>
+            <img src="{% static 'img/party-330.jpg' %}" alt="">
+        </div>
+        <section class="content" id="content" >
+            <div class="container">
+                <div class="player">
+                    <audio id="av-tag" controls><source src="{% static 'music/epic.mp3' %}" type="audio/mp3">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <button class="play-btn">►</button>
+                    <div class="play-time">1:00</div>
+                    <input id="cur-time" type="range" min="0" max="10" step="0">
+                    <div ><span  id="speaker" class="material-symbols-outlined">
+                        volume_up
+                    </span></div>
+                    <input id="volume" type="range" min="0" max="10">
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <footer>
+
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

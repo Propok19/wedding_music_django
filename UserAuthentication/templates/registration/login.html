@@ -1,0 +1,17 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <div id="content", name="content">
+        <form method="POST" class="form-group">
+        {% csrf_token %}
+        {{form}}
+        <button type="submit" class="btn btn-success">Login</button>
+        <p>Don't have an account? Create one <a href="/register"> here</a></p>
+    </form>
+    </div>
+</body>
+</html>
