@@ -1,21 +1,39 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from django.contrib.auth import logout
+from django.contrib.auth import authenticate, login, logout
+from .forms import UserLoginForm, RegistrationForm
 
-from .forms import RegisterForm
 
-def register(response):
-    if response.method == "POST":
-        form = RegisterForm(response.POST)
+def login_request(request):
+    title = "Login"
+    form = UserLoginForm(request.POST or None)
+    context = {
+        'form': form,
+        'title': title,
+    }
+    if form.is_valid():
+        username = form.cleaned_data.get('username')
+        password = form.cleaned_data.get('password')
+        user = authenticate(request, username=username, password=password)
+        login(request, user)
+        return redirect('home')
+    else:
+        print(form.errors)
+    return render(request, 'home', context=context)
+
+
+def signup_request(request):
+    title = "Create Account"
+    if request.method == "POST":
+        form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-
-        return redirect("/")
+            return redirect('login')
     else:
-        form = RegisterForm()
+        form = RegistrationForm()
+    context = {'form': form, 'title': title}
+    return render(request, 'registration/sign-up.html', context=context)
 
-    return render(response, "D:\\Andrey\\Learning\\wed_django\\wed_mus\\main\\templates\\registration\\sign-up.html", {"form":form})
 
 def logout_request(request):
     logout(request)
-    return redirect("D:\\Andrey\\Learning\\wed_django\\wed_mus\\main\\templates\\home\\index.html")
+    return redirect('home')

@@ -17,19 +17,16 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from UserAuthentication import views as v
-from music_player import views as v2
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('register/', v.register, name="register"),
+    path('', include("UserAuthentication.urls")),
     path('', include("main.urls")),
     path('', include("django.contrib.auth.urls")),
-    path('music/', v2.all_songs, name="music"),
-    path('play/<int:song_id>/', v2.play_song, name="play_song"),
-    path('logout/', v.logout_request, name="logout")
+    path('', include("music_player.urls")),
+    path('__debug__/', include('debug_toolbar.urls')),
 ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
